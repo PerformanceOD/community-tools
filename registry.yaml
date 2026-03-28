@@ -1,0 +1,54 @@
+# Community Tools Registry
+# PerformanceOD / Open Source OD / OSOD
+#
+# Each tool is self-contained, reversible, and practice-tested.
+# Names may change as the project evolves — the tools stay the same.
+
+project_aliases:
+  - PerformanceOD
+  - Open Source OD
+  - OSOD
+
+tools:
+  - name: salience-memory
+    version: "1.0"
+    status: active
+    description: >
+      Memory scoring system that tracks what files and knowledge your AI agents
+      actually use. Frequently-accessed knowledge surfaces first. Unused knowledge
+      fades but never deletes. Works across multiple repos and agents.
+    origin: "SpazTaz (Alex Finn community) concept + IVA implementation"
+    built: 2026-03-28
+    tested_at: "IVA — Integrated Vision & Aesthetics"
+    requires:
+      - python3
+      - sqlite3 (built into python)
+      - ssh (for multi-machine agent deployment)
+    optional:
+      - cron (for automatic sync)
+    works_with:
+      - Claude Code
+      - OpenClaw agents
+      - Any git-based knowledge repo
+    reversible: true
+    reverse_command: "python3 cli.py reset && rm -rf scripts/salience/"
+    folder: salience-memory/
+    tags: [memory, agents, knowledge-management, ai-ops]
+
+# Template for adding new tools:
+#
+#  - name: tool-name
+#    version: "1.0"
+#    status: active | beta | experimental
+#    description: >
+#      What it does in plain language. Who it's for. What problem it solves.
+#    origin: "Where the idea came from"
+#    built: YYYY-MM-DD
+#    tested_at: "Practice or environment where it was proven"
+#    requires: []
+#    optional: []
+#    works_with: []
+#    reversible: true
+#    reverse_command: "how to undo"
+#    folder: tool-folder-name/
+#    tags: []
